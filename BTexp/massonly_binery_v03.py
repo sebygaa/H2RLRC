@@ -52,13 +52,13 @@ def ex_Lang(P, iso_params):
 
 qm1 = 3
 b1 = 1
-#qm2 = 1
-#b2 = 0.5
-qm2 = 0
-b2 = 0.0
+qm2 = 1
+b2 = 0.5
+#qm2 = 0
+#b2 = 0.0
 
 def ex_Lang(P1,P2, qm1_par):
-    denom = 1 + b1*P1 + b2*P2+1E-5
+    denom = 1 + b1*P1 + b2*P2
     numer1 = qm1_par*b1*P1
     numer2 = qm2*b2*P2
     q1 = numer1/denom
@@ -156,7 +156,7 @@ def yres2bt(y,N_node, ):
     #q2_res = y[:,2*N:3*N]
     C1_end = C1_res[:,-1]
     C2_end = C2_res[:,-1]
-    Ctot_end = C1_end + C2_end + 1E-5
+    Ctot_end = C1_end + C2_end + 1e-6
     yfrac1 = C1_end/Ctot_end
     return yfrac1
 
@@ -181,8 +181,7 @@ y0 = np.concatenate((C1_init,C2_init, q1_init, q2_init))
 #t_test =np.linspace(0,250,2501)
 #t_test =np.linspace(0,250,5001)
 #t_test =np.linspace(0,1000,20001)
-y_res = odeint(massbal, y0, t_test, args=(3.8, k_test))
-#y_res = odeint(massbal, y0, t_test, args=(3.0, k_test))
+y_res = odeint(massbal, y0, t_test, args=(3.0, k_test))
 y1_frac_res_k2 = yres2bt(y_res, N)
 
 # %%
@@ -193,8 +192,7 @@ y0 = np.concatenate((C1_init,C2_init, q1_init, q2_init))
 #t_test =np.linspace(0,1500,30001)
 #t_test =np.linspace(0,250,5001)
 #t_test =np.linspace(0,1000,20001)
-y_res = odeint(massbal, y0, t_test, args=(4.8, k_test))
-#y_res = odeint(massbal, y0, t_test, args=(3.0, k_test))
+y_res = odeint(massbal, y0, t_test, args=(3.0, k_test))
 y1_frac_res_k3 = yres2bt(y_res, N)
 
 # %%
@@ -258,4 +256,52 @@ plt.grid(linestyle = ':', linewidth = 0.7)
 #plt.savefig('q1_Profile.png', dpi = 150)
 
 
+
+
+# %%
+
+q_test = 3
+q1_init, q2_init = ex_Lang(P1_init, P2_init, q_test)
+y0 = np.concatenate((C1_init,C2_init, q1_init, q2_init))
+
+y_res = odeint(massbal, y0, t_test, args=(q_test, 0.05))
+y1_frac_res_q1 = yres2bt(y_res, N)
+
+# %%
+
+q_test = 3.2
+q1_init, q2_init = ex_Lang(P1_init, P2_init, q_test)
+y0 = np.concatenate((C1_init,C2_init, q1_init, q2_init))
+
+y_res = odeint(massbal, y0, t_test, args=(q_test, 0.05))
+y1_frac_res_q2 = yres2bt(y_res, N)
+
+# %%
+# k = 0.005
+# %%
+q_test = 3.5
+q1_init, q2_init = ex_Lang(P1_init, P2_init, q_test)
+y0 = np.concatenate((C1_init,C2_init, q1_init, q2_init))
+
+y_res = odeint(massbal, y0, t_test, args=(q_test, 0.05))
+y1_frac_res_q3 = yres2bt(y_res, N)
+
+# %%
+# Graph for diff. MTC
+
+plt.figure(dpi = 150)
+
+plt.plot(t_test, y1_frac_res_q1,
+         linewidth = 1.9, color = 'k', linestyle = '-',
+         label = 'Iso. Para. (mol/kg) = 3')
+
+plt.plot(t_test, y1_frac_res_q2,
+         linewidth = 1.9, color = 'k', linestyle = '--',
+         label = 'Iso. Para. (mol/kg) = 3.2')
+
+plt.plot(t_test, y1_frac_res_q3,
+         linewidth = 1.9, color = 'k', linestyle = '-.',
+         label = 'Iso. Para. (mol/kg) = 3.5')
+plt.legend(fontsize = 10)
+plt.ylim([-0.01, 1.1])
 # %%
