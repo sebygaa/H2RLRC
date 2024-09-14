@@ -292,8 +292,8 @@ plt.legend(fontsize = 11, loc = [1.04, 0.02])
 plt.xlabel('z-axis (m) of packed bed', fontsize = 12)
 plt.ylabel('solid phase mole fraction (mol/kg)', fontsize = 12)
 plt.grid(linestyle = ':')
-plt.savefig('Savedfig_q_res.png', dpi = 100,
-            bbox_inches = 'tight')
+#plt.savefig('Savedfig_q_res.png', dpi = 100,
+#            bbox_inches = 'tight')
 
 # %%
 # [TO THE END] Draw Graph for Gas phase mole fractions
@@ -322,8 +322,8 @@ plt.legend(fontsize = 11, loc = [1.04, 0.02])
 plt.xlabel('z-axis (m) of packed bed', fontsize = 12)
 plt.ylabel('gas phase mole fraction (mol/mol)', fontsize = 12)
 plt.grid(linestyle = ':')
-plt.savefig('Savedfig_y_frac_end.png', dpi = 100,
-            bbox_inches = 'tight')
+#plt.savefig('Savedfig_y_frac_end.png', dpi = 100,
+#            bbox_inches = 'tight')
 
 
 # %%
@@ -354,8 +354,8 @@ plt.legend(fontsize = 11, loc = [1.04, 0.02])
 plt.xlabel('z-axis (m) of packed bed', fontsize = 12)
 plt.ylabel('solid phase mole fraction (mol/kg)', fontsize = 12)
 plt.grid(linestyle = ':')
-plt.savefig('Savedfig_q_res_end.png', dpi = 100,
-            bbox_inches = 'tight')
+#plt.savefig('Savedfig_q_res_end.png', dpi = 100,
+#            bbox_inches = 'tight')
 
 # %%
 n_ls = -1
@@ -364,7 +364,7 @@ for ii in range(len(t_dom))[:5000:400]:
     n_ls = n_ls+1
 
     plt.plot(z, y_res[ii,1*N:2*N],)
-plt.savefig('Savedfig02.png', dpi = 100)
+#plt.savefig('Savedfig02.png', dpi = 100)
 
 # %%
 n_ls = -1
@@ -373,7 +373,7 @@ for ii in range(len(t_dom))[:5000:400]:
     n_ls = n_ls+1
 
     plt.plot(z, 1 - y_res[ii,1*N:2*N] - y_res[ii,0*N:1*N] ,)
-plt.savefig('Savedfig03.png', dpi = 100)
+#plt.savefig('Savedfig03.png', dpi = 100)
 
 # %%
 # HERE is an Important tip!
@@ -462,7 +462,7 @@ plt.legend(fontsize = 11, loc = [1.04, 0.02])
 plt.xlabel('z-axis (m) of packed bed', fontsize = 12)
 plt.ylabel('gas phase mole fraction (mol/mol)', fontsize = 12)
 plt.grid(linestyle = ':')
-plt.savefig('Savedfig_y_frac_end.png', dpi = 100,
-            bbox_inches = 'tight')
+#plt.savefig('Savedfig_y_frac_end.png', dpi = 100,
+#            bbox_inches = 'tight')
 
 # %%
