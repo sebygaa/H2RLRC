@@ -262,8 +262,8 @@ plt.legend(fontsize = 11, loc = [1.04, 0.02])
 plt.xlabel('z-axis (m) of packed bed', fontsize = 12)
 plt.ylabel('gas phase mole fraction (mol/mol)', fontsize = 12)
 plt.grid(linestyle = ':')
-plt.savefig('Savedfig_PR_y_frac.png', dpi = 100, 
-            bbox_inches = 'tight')
+#plt.savefig('Savedfig_PR_y_frac.png', dpi = 100, 
+#            bbox_inches = 'tight')
 
 # %%
 # Draw solid phase mole fraction
@@ -292,8 +292,8 @@ plt.legend(fontsize = 11, loc = [1.04, 0.02])
 plt.xlabel('z-axis (m) of packed bed', fontsize = 12)
 plt.ylabel('solid phase mole fraction (mol/kg)', fontsize = 12)
 plt.grid(linestyle = ':')
-plt.savefig('Savedfig_PR_q_res_.png', dpi = 100,
-            bbox_inches = 'tight')
+#plt.savefig('Savedfig_PR_q_res_.png', dpi = 100,
+#            bbox_inches = 'tight')
 
 # %%
 # [TO THE END] Draw Graph for Gas phase mole fractions
